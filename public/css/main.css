@@ -1,6 +1,7 @@
 :root {
     --color: cornflowerblue;
     --color2: blue;
+    --color3: #3A75FF;
 }
 body {
     background-color: var(--color);
@@ -12,7 +13,9 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 0 3% 0 3%;
-    padding-bottom: 80px;
+    margin-bottom: 80px;
+    border-bottom: solid 2px;
+    background-color: var(--color3);
 }
 .navbar ul {
     display: flex;
@@ -21,7 +24,7 @@ body {
     justify-content: space-between;
     font-weight: bolder;
 }
-.navbar .bouton {
+.bouton {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,14 +38,15 @@ body {
     position: relative;
     overflow: hidden;
     transition: color 1s;
+    z-index: 3;
 }
-.navbar .bouton:hover {
+.bouton:hover {
     cursor: pointer;
 }
-.navbar .bouton:hover::before {
+.bouton:hover::before {
     right: 0;
 }
-.navbar .bouton::before {
+.bouton::before {
     content: '';
     position: absolute;
     right: 100%;
@@ -50,12 +54,15 @@ body {
     height: 200%;
     background: var(--color2);
     transition: all 0.5s;
-    z-index: -1;
+    z-index: 2;
 }
-.navbar .btn {
+.btn {
     width: 20%;
     display: flex;
     align-items: center;
+}
+.text-bouton {
+    z-index: 3;
 }
 .navbar li {
     list-style: none;
@@ -73,6 +80,7 @@ body {
     left: 50%;
     width: 0%;
     height: 3px;
+    border-radius: 50px;
     background: var(--color2);
     transition: all 0.5s;
 }
@@ -101,6 +109,9 @@ body {
 .container .txt {
     display: flex;
     flex-wrap: wrap;
+}
+.list thead:hover {
+    cursor: pointer;
 }
 .list {
     width: 100%;
@@ -148,6 +159,9 @@ body {
     width: 100%;
     text-align: center;
 }
+.detail a {
+    text-decoration: none;
+}
 .detail h1 {
     width: 100%;
 }
@@ -167,4 +181,13 @@ body {
     cursor: pointer;
     transform: scale(1.1);
     background-color : var(--color2);
+}
+.commentaires {
+    margin: 50px 10% 0 10%;
+}
+.commentaire {
+    margin: 20px 0 20px 0;
+    background-color: black;
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
 }

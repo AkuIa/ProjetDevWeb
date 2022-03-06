@@ -7,9 +7,31 @@
         <h2>Prix : {{ crypto.prix }} €</h2>
         <h2>Quantite : {{ crypto.quantite }}</h2>
         <h2>Capitalisation : {{ crypto.capitalisation }}</h2>
-        <form action="{{ path('crypto.list') }}">
-            <input type="submit" value="Retour">
-        </form>
+        <div class="btn">
+            <a class="bouton" type="button" href="{{ path('crypto.list') }}">
+                <p class="text-bouton">Retour</p>
+            </a>
+        </div>
+    </div>
+    <div class="commentaires">
+        <div class="commentaire">
+            <h2 class="auteur">Alexandre</h2>
+            <p class="text-commentaire">
+                Pas mal cette crypto.
+            </p>
+        </div>
+        <div class="commentaire">
+            <h2 class="auteur">Enzo</h2>
+            <p class="text-commentaire">
+                C'est cool.
+            </p>
+        </div>
+        <div class="commentaire">
+            <h2 class="auteur">Damien</h2>
+            <p class="text-commentaire">
+                Je vois pas m'intérêt.
+            </p>
+        </div>
     </div>
 
 
