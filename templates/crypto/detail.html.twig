@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des cryptos{% endblock %}
+{% block body %}
+    <div class="detail">
+        <h1>{{ crypto.nom }}</h1>
+        <h2>Devise : {{ crypto.devise }}</h2>
+        <h2>Prix : {{ crypto.prix }} €</h2>
+        <h2>Quantite : {{ crypto.quantite }}</h2>
+        <h2>Capitalisation : {{ crypto.capitalisation }}</h2>
+        <form action="{{ path('crypto.list') }}">
+            <input type="submit" value="Retour">
+        </form>
+    </div>
+
+
+{% endblock %}

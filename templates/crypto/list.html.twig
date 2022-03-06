@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des cryptos{% endblock %}
+{% block body %}
+    <div class="container">
+        <table class="list">
+            <tr>
+                <th>Nom</th>
+                <th>Devise</th>
+                <th>Prix</th>
+                <th>Capitalisation</th>
+                <th>Quantité</th>
+            </tr>
+            {% for crypto in cryptos %}
+                <tr>
+                    <td><a href="{{ path('crypto.detail', {devise: crypto.devise}) }}">{{ crypto.nom }}</a></td>
+                    <td>{{ crypto.devise }}</td>
+                    <td>{{ crypto.prix }}</td>
+                    <td>{{ crypto.capitalisation }}</td>
+                    <td>{{ crypto.quantite }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
