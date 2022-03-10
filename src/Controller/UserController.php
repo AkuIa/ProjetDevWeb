@@ -39,15 +39,19 @@ class UserController extends AbstractController
                    ));
                    $em->persist($user);
                    $em->flush();
-                   return $this->redirectToRoute('crypto');
+                   return $this->redirectToRoute('user.login');
                } else {
                    return $this->render('user/create.html.twig', [
                        'form' => $form->createView(),
+                       'error' => "Email déja utilisé.",
                    ]);
                }
-               return $this->render('user/create.html.twig', [
-                   'form' => $form->createView(),
-               ]);
+           }else{
+                return $this->render('user/create.html.twig', [
+                    'form' => $form->createView(),
+                ]);
            }
        }
+
+
 }

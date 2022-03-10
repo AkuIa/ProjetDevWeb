@@ -24,6 +24,11 @@ body {
     justify-content: space-between;
     font-weight: bolder;
 }
+.inscription-connexion {
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+}
 .bouton {
     display: flex;
     align-items: center;
@@ -58,7 +63,7 @@ body {
     z-index: 2;
 }
 .btn {
-    width: 20%;
+    width: 40%;
     display: flex;
     align-items: center;
 }
@@ -192,16 +197,8 @@ body {
     border-radius: 10px;
     padding: 5px 5px 5px 5px;
 }
-.inscription-connexion {
-    display: flex;
-    margin: 0 10% 0 10%;
-}
-.inscription-connexion div {
-    width: 50%;
-}
-.connexion {
-}
 .inscription {
+    margin: 0 10% 0 10%;
     background-color: var(--color3);
     display: flex;
     flex-wrap: wrap;
@@ -246,4 +243,52 @@ body {
 }
 .inscription h1 {
     width: 100%;
+}
+.connexion {
+    margin: 0 10% 0 10%;
+    padding: 20px;
+    background-color: var(--color3);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 20px;
+}
+.connexion h1 {
+    text-align: center;
+    width: 100%;
+}
+.connexion input[type="email"], .connexion input[type="password"] {
+    width: 100%;
+    height: 50px;
+    font-size: x-large;
+    border: none;
+    background-color: #3A75FF;
+    border-bottom: solid 2px white;
+    color: white;
+}
+.connexion input::placeholder {
+    color: white;
+}
+.connexion input:focus {
+    outline: none;
+}
+.checkbox {
+    margin-top: 20px;
+    width: 100%;
+}
+.connexion .btn {
+    border-radius: 50px;
+    border: none;
+    background-color: white;
+    color: var(--color2);
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 40px;
+    transition: all 0.5s;
+}
+.connexion .btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }

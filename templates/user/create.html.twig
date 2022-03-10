@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Inscription{% endblock %}
 {% block body %}
-<div class="inscription-connexion">
        <div class="inscription">
               <h1>Inscription</h1>
               {{ form_start(form) }}
@@ -11,12 +10,9 @@
                             <button type="submit" class="btn btn-default">S'inscrire</button>
                      </div>
               </div>
-       </div>
-       <div class="connexion">
-
-       </div>
-
-</div>
-    
+                {% if error is defined %}
+                    <p>{{ error }}</p>
+                {% endif %}
+       </div>  
     {{ form_end(form) }}
 {% endblock %}

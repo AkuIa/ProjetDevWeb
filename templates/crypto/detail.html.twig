@@ -16,7 +16,7 @@
     <div class="commentaires">
        {% for commentaire in commentaires %}
               <div class="commentaire">
-                     <h2 class="auteur">{{ commentaire.user.id }}</h2>
+                     <h2 class="auteur">{{ commentaire.user.prenom }} {{ commentaire.user.nom }}</h2>
                      <p class="text-commentaire">
                             {{ commentaire.description }}
                      </p>

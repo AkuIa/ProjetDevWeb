@@ -23,10 +23,24 @@
                 <li><a href="{{ path('crypto.list') }}">Les cryptos</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
-            <div class="btn">
-                <a class="bouton" type="button" href="{{ path('user.create') }}">
-                    <p class="text-bouton">Se Connecter / S'incrire</p>
-                </a>
+            <div class="inscription-connexion">
+                <div class="btn">
+                    <a class="bouton" type="button" href="{{ path('user.create') }}">
+                        <p class="text-bouton">S'incrire</p>
+                    </a>
+                </div>
+                <div class="btn">
+                    
+                        {% if app.user.username is defined %}
+                            <a class="bouton" type="button" href="{{ path('user.logout') }}">
+                                <p class="text-bouton">Se deconnecter</p>
+                            </a>
+                        {% else %}
+                            <a class="bouton" type="button" href="{{ path('user.login') }}">
+                                <p class="text-bouton">Se connecter</p>
+                            </a>
+                        {% endif %}
+                </div>
             </div>
         </div>
         {% block body %}{% endblock %}
