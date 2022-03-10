@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Commentaire;
 use App\Entity\Crypto;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,9 +39,11 @@ class CryptoController extends AbstractController
      */
     public function detail(Crypto $crypto) : Response
     {
+        $commentaires = $this->getDoctrine()->getRepository(Commentaire::class)->findBy(array('crypto' => $crypto->getId()));
         return $this->render('crypto/detail.html.twig', [
             'controller_name' => 'CryptoController',
             'crypto' => $crypto,
+            'commentaires' => $commentaires,
         ]);
     }
 }

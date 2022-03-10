@@ -32,5 +32,8 @@ class CryptoFixtures extends Fixture
 
         $manager->persist($crypto2);
         $manager->flush();
+
+        $this->addReference('crypto-btc', $crypto1);
+        $this->addReference('crypto-eth', $crypto2);
     }
 }

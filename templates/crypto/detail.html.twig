@@ -14,24 +14,14 @@
         </div>
     </div>
     <div class="commentaires">
-        <div class="commentaire">
-            <h2 class="auteur">Alexandre</h2>
-            <p class="text-commentaire">
-                Pas mal cette crypto.
-            </p>
-        </div>
-        <div class="commentaire">
-            <h2 class="auteur">Enzo</h2>
-            <p class="text-commentaire">
-                C'est cool.
-            </p>
-        </div>
-        <div class="commentaire">
-            <h2 class="auteur">Damien</h2>
-            <p class="text-commentaire">
-                Je vois pas m'intérêt.
-            </p>
-        </div>
+       {% for commentaire in commentaires %}
+              <div class="commentaire">
+                     <h2 class="auteur">{{ commentaire.user.id }}</h2>
+                     <p class="text-commentaire">
+                            {{ commentaire.description }}
+                     </p>
+              </div>
+       {% endfor %}
     </div>
 
 

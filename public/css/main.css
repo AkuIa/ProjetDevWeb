@@ -39,6 +39,7 @@ body {
     overflow: hidden;
     transition: color 1s;
     z-index: 3;
+    text-decoration: none;
 }
 .bouton:hover {
     cursor: pointer;
@@ -190,4 +191,59 @@ body {
     background-color: black;
     border-radius: 10px;
     padding: 5px 5px 5px 5px;
+}
+.inscription-connexion {
+    display: flex;
+    margin: 0 10% 0 10%;
+}
+.inscription-connexion div {
+    width: 50%;
+}
+.connexion {
+}
+.inscription {
+    background-color: var(--color3);
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    text-align: center;
+}
+.inscription form {
+    width: 100%;
+}
+.inscription div {
+    width: 100%;
+}
+.inscription #user {
+    margin: 0 10% 0 10%;
+    width: 80%;
+}
+.inscription #user div {
+    margin: 20px 0 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.inscription button {
+    width: 80%;
+    margin: 0 10% 20px 10%;
+    border-radius: 20px;
+    border: solid 2px var(--color2);
+    background-color: var(--color);
+    height: 50px;
+    transition: all 0.5s;
+    color: white;
+    align-items: center;
+}
+.inscription button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.inscription input {
+    height: 30px;
+    width: 70%;
+    border-radius: 20px;
+    border: solid 2px var(--color2);
+}
+.inscription h1 {
+    width: 100%;
 }
