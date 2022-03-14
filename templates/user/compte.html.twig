@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mon compte{% endblock %}
+{% block body %}
+    <div class="compte">
+        <h1>Compte de {{ app.user.username }}</h1>
+        <h3>Nom : {{ user.nom }}</h3>
+        <h3>Prénom : {{ user.prenom }}</h3>
+        <h3>Crypto favoris :
+            {{ user.favoris|join(', ') }}
+        </h3>
+        <br/>
+        <h1>Mes commentaires</h1>
+    </div>
+    <div class="container">
+            <table class="list">
+                <thead>
+                    <tr>
+                        <th>Crypto</th>
+                        <th>Date</th>
+                        <th>Commentaire</th>
+                        <th>Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for commentaire in commentaires %}
+                        <tr>
+                            <td>{{ commentaire.crypto.nom }}</td>
+                            <td>{{ commentaire.getDatePublication().format('d/m/Y') }}</td>
+                            <td>
+                                <form method="post" action="{{ path('user.modifier-commentaire', {commentaire: commentaire.id}) }}">
+                                    <textarea name="text-user-commentaire">{{ commentaire.description }}</textarea>
+                                    <input type="submit" value="Modifier">
+                                </form>
+                            </td>
+                            <td>
+                                <form method="post" action="{{ path('user.supprimer-commentaire', {commentaire: commentaire.id}) }}">
+                                    <input type="submit" value="Supprimer">
+                                </form>
+                            </td>
+                        </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    </div>
+
+{% endblock %}

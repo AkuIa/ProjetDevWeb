@@ -17,11 +17,13 @@ class CommentaireFixtures extends Fixture implements DependentFixtureInterface
     
     public function load(ObjectManager $manager) : void
     {
+        $date = new \DateTime();
+        $date->setDate(2020,9, 02);
         $com1 = new Commentaire();
         $com1->setDescription("Trop bien.")
+        ->setDatePublication($date)
         ->setCrypto($manager->merge($this->getReference('crypto-btc')))
         ->setUser($manager->merge($this->getReference('user-admin')));
-
         $manager->persist($com1);
         $manager->flush();
 

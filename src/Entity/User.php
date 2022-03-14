@@ -44,6 +44,11 @@ class User implements UserInterface
      */
     private $prenom;
 
+    /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $favoris = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -145,6 +150,18 @@ class User implements UserInterface
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getFavoris(): ?array
+    {
+        return $this->favoris;
+    }
+
+    public function setFavoris(?array $favoris): self
+    {
+        $this->favoris = $favoris;
 
         return $this;
     }

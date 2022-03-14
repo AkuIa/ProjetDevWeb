@@ -12,16 +12,47 @@
                 <p class="text-bouton">Retour</p>
             </a>
         </div>
+        {% if user is defined %}
+            {% set trouve = false %}
+            {% for favori in user.favoris %}
+                {% if favori == crypto.devise %}
+                    {% set trouve = true %}
+                {% endif %}
+            {% endfor %}
+            {% if trouve == true %}
+                <div class="btn">
+                    <a class="bouton" type="button" href="{{ path('user.retirer-favoris', {devise: crypto.devise}) }}">
+                        <p class="text-bouton">Retirer des favoris</p>
+                    </a>
+                </div>
+            {% else %}
+                <div class="btn">
+                    <a class="bouton" type="button" href="{{ path('user.ajouter-favoris', {devise: crypto.devise}) }}">
+                        <p class="text-bouton">Ajouter au favoris</p>
+                    </a>
+                </div>
+            {% endif %}
+
+        {% endif %}
     </div>
     <div class="commentaires">
-       {% for commentaire in commentaires %}
-              <div class="commentaire">
-                     <h2 class="auteur">{{ commentaire.user.prenom }} {{ commentaire.user.nom }}</h2>
-                     <p class="text-commentaire">
-                            {{ commentaire.description }}
-                     </p>
-              </div>
-       {% endfor %}
+           {% if app.user.username is defined %}
+               <div class="commentaire">
+                   <form method="post" action="{{ path('user.ajouter-commentaire', {crypto: crypto.id}) }}">
+                       <textarea name="nouveau-commentaire" placeholder="Écrivez votre commentaire"></textarea>
+                       <input type="submit" value="Ajouter">
+                   </form>
+               </div>
+           {% endif %}
+           {% for commentaire in commentaires %}
+                  <div class="commentaire">
+                         <h2 class="auteur">{{ commentaire.user.prenom }} {{ commentaire.user.nom }}</h2>
+                         <h4>{{ commentaire.getDatePublication().format('d/m/Y') }}</h4>
+                         <p class="text-commentaire">
+                                {{ commentaire.description }}
+                         </p>
+                  </div>
+           {% endfor %}
     </div>
 
 

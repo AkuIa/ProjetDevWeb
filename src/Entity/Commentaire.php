@@ -34,6 +34,11 @@ class Commentaire
      */
     private $crypto;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date_publication;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +76,18 @@ class Commentaire
     public function setCrypto(?Crypto $crypto): self
     {
         $this->crypto = $crypto;
+
+        return $this;
+    }
+
+    public function getDatePublication(): ?\DateTimeInterface
+    {
+        return $this->date_publication;
+    }
+
+    public function setDatePublication(\DateTimeInterface $date_publication): self
+    {
+        $this->date_publication = $date_publication;
 
         return $this;
     }

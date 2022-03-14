@@ -24,23 +24,33 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             <div class="inscription-connexion">
-                <div class="btn">
-                    <a class="bouton" type="button" href="{{ path('user.create') }}">
-                        <p class="text-bouton">S'incrire</p>
-                    </a>
-                </div>
-                <div class="btn">
+
+
                     
                         {% if app.user.username is defined %}
-                            <a class="bouton" type="button" href="{{ path('user.logout') }}">
-                                <p class="text-bouton">Se deconnecter</p>
-                            </a>
+                            <div class="btn">
+                                <a class="bouton" type="button" href="{{ path('user.compte') }}">
+                                    <p class="text-bouton">Mon compte</p>
+                                </a>
+                            </div>
+                            <div class="btn">
+                                <a class="bouton" type="button" href="{{ path('user.logout') }}">
+                                    <p class="text-bouton">Se deconnecter</p>
+                                </a>
+                            </div>
                         {% else %}
-                            <a class="bouton" type="button" href="{{ path('user.login') }}">
-                                <p class="text-bouton">Se connecter</p>
-                            </a>
+                            <div class="btn">
+                                <a class="bouton" type="button" href="{{ path('crypto.inscription') }}">
+                                    <p class="text-bouton">S'incrire</p>
+                                </a>
+                            </div>
+                            <div class="btn">
+                                <a class="bouton" type="button" href="{{ path('user.login') }}">
+                                    <p class="text-bouton">Se connecter</p>
+                                </a>
+                            </div>
                         {% endif %}
-                </div>
+
             </div>
         </div>
         {% block body %}{% endblock %}
