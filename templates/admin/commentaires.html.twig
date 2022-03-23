@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Cryptos{% endblock %}
+{% block body %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"
+            xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stupidtable/1.1.3/stupidtable.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <div class="container">
+        <table class="admin-list" id="list">
+            <thead>
+            <tr>
+                <th data-sort="int"><i class="fa fa-sort"></i> {{ 'Id'|trans }}</th>
+                <th data-sort="string"><i class="fa fa-sort"></i> {{ 'Auteur'|trans }}</th>
+                <th data-sort="string"><i class="fa fa-sort"></i> {{ 'Crypto'|trans }}</th>
+                <th data-sort="string"><i class="fa fa-sort"></i> {{ 'Description'|trans }}</th>
+                <th data-sort="string"><i class="fa fa-sort"></i> {{ 'Date'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for commentaire in commentaires %}
+                <tr class="admin-list">
+                    <form method="post" action="{{ path('admin.delete-commentaire', {id: commentaire.id}) }}">
+                        <td><input name="id" type="number" maxlength="50" value="{{ commentaire.id }}" disabled></td>
+                        <td><input name="auteur" type="email" maxlength="4" value="{{ commentaire.user.email }}" disabled></td>
+                        <td><input name="crypto" type="text" value="{{ commentaire.crypto.nom }}" disabled></td>
+                        <td>
+                            <p>{{ commentaire.description }}</p>
+                        </td>
+                        <td><input name="date" type="text" value="{{ commentaire.getDatePublication()|date("m/d/Y") }}" disabled></td>
+                        <td>
+                            <button class="btn-admin"><i class="icon-admin-remove fa fa-remove"></i></button>
+                        </td>
+                    </form>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function($) {
+            $("#list").stupidtable();
+        });
+    </script>
+{% endblock %}

@@ -8,18 +8,35 @@ use App\Entity\User;
 use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\HttpFoundation\Cookie;
+use function Composer\Autoload\includeFile;
+
 
 class CryptoController extends AbstractController
 {
+
     /**
      * @Route("/crypto", name="crypto")
      */
     public function index(): Response
     {
+        if (empty($_COOKIE['theme'])) {
+            $res = new Response();
+            $cookie = new Cookie('theme',
+                'light',
+                strtotime('tomorrow'),
+                '/',
+                'localhost',
+                true,
+                true);
+            $res->headers->setCookie($cookie);
+            $res->send();
+        }
         return $this->render('crypto/index.html.twig', [
             'controller_name' => 'CryptoController',
         ]);
@@ -70,7 +87,7 @@ class CryptoController extends AbstractController
      * @return RedirectResponse|Response
      */
 
-    public function create(HttpFoundationRequest $request, EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder) : Response
+    public function create(Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder) : Response
     {
         $this->passwordEncoder = $passwordEncoder;
         $user = new User();
@@ -98,5 +115,32 @@ class CryptoController extends AbstractController
                 'form' => $form->createView(),
             ]);
         }
+    }
+
+    /**
+     * @Route("/change_locale/{locale}", name="change_locale")
+     */
+    public function changeLocale($locale, Request $request)
+    {
+        // On stocke la langue dans la session
+        $request->getSession()->set('_locale', $locale);
+
+        // On revient sur la page précédente
+        return $this->redirect($request->headers->get('referer'));
+    }
+
+    /**
+     * @Route("/change_theme/{theme}", name="change_theme")
+     */
+    public function changeTheme($theme, Request $request)
+    {
+        if ($theme == 'light') {
+            $theme = 'dark';
+        }else{
+            $theme = 'light';
+        }
+        setcookie('theme', $theme, 'tomorrow', '/', 'localhost', true);
+        // On revient sur la page précédente
+        return $this->redirect($request->headers->get('referer'));
     }
 }

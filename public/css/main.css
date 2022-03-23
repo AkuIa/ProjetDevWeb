@@ -1,3 +1,10 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color: cornflowerblue;
+        --color2: blue;
+        --color3: #3A75FF;
+    }
+}
 :root {
     --color: cornflowerblue;
     --color2: blue;
@@ -335,4 +342,95 @@ body {
 }
 .commentaire input:hover {
     cursor: pointer;
+}
+.menu-admin {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 20% 0 20%;
+}
+.menu-admin .btn {
+    width: 100%;
+    margin: 30px 0 30px 0;
+}
+.icon-admin-edit {
+    background-color: #3A75FF;
+    padding: 9px 10px 9px 10px;
+    border-radius: 5px;
+    transition: all 0.4s;
+}
+.icon-admin-remove {
+    background-color: red;
+    padding: 9px 10px 9px 10px;
+    border-radius: 5px;
+    transition: all 0.4s;
+}
+.icon-admin-edit:hover, .icon-admin-remove:hover, .icon-admin-add:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.admin-list {
+    width: 100%;
+    margin: 0 20px 0 20px;
+}
+.admin-list thead th {
+    text-align: start;
+}
+.btn-admin {
+    background-color: rgba(255,255,255,0);
+    border: none;
+    color: white;
+}
+.admin-list input {
+    width: 80%;
+    border-bottom: solid 2px var(--color3);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: rgba(0,0,255,0.2);
+    color: white;
+}
+.ajout {
+    margin: 0 10% 20px 10%;
+}
+.ajout form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.ajout form input {
+    width: 80%;
+    margin: 0 10px 0 10px;
+    border-bottom: solid 2px var(--color3);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: rgba(0,0,255,0.2);
+    color: white;
+}
+.ajout form input::placeholder {
+    color: white;
+}
+
+.icon-admin-add {
+    background-color: green;
+    padding: 9px 10px 9px 10px;
+    border-radius: 5px;
+    transition: all 0.4s;
+}
+.lang {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lang a {
+    text-decoration: none;
+    margin-left: 5px;
+}
+.theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.theme a {
+    text-decoration: none;
 }

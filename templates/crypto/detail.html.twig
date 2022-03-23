@@ -3,13 +3,13 @@
 {% block body %}
     <div class="detail">
         <h1>{{ crypto.nom }}</h1>
-        <h2>Devise : {{ crypto.devise }}</h2>
-        <h2>Prix : {{ crypto.prix }} €</h2>
-        <h2>Quantite : {{ crypto.quantite }}</h2>
-        <h2>Capitalisation : {{ crypto.capitalisation }}</h2>
+        <h2>{{ 'Devise'|trans }} : {{ crypto.devise }}</h2>
+        <h2>{{ 'Prix'|trans }} : {{ crypto.prix }} €</h2>
+        <h2>{{ 'Quantité'|trans }} : {{ crypto.quantite }}</h2>
+        <h2>{{ 'Capitalisation'|trans }} : {{ crypto.capitalisation }}</h2>
         <div class="btn">
             <a class="bouton" type="button" href="{{ path('crypto.list') }}">
-                <p class="text-bouton">Retour</p>
+                <p class="text-bouton">{{ 'Retour'|trans }}</p>
             </a>
         </div>
         {% if user is defined %}
@@ -22,13 +22,13 @@
             {% if trouve == true %}
                 <div class="btn">
                     <a class="bouton" type="button" href="{{ path('user.retirer-favoris', {devise: crypto.devise}) }}">
-                        <p class="text-bouton">Retirer des favoris</p>
+                        <p class="text-bouton">{{ 'Retirer des favoris'|trans }}</p>
                     </a>
                 </div>
             {% else %}
                 <div class="btn">
                     <a class="bouton" type="button" href="{{ path('user.ajouter-favoris', {devise: crypto.devise}) }}">
-                        <p class="text-bouton">Ajouter au favoris</p>
+                        <p class="text-bouton">{{ 'Ajouter au favoris'|trans }}</p>
                     </a>
                 </div>
             {% endif %}

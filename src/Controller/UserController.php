@@ -17,18 +17,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-        /**
-        * Require ROLE_USER for *every* controller method in this class.
-        *
-        * @IsGranted("ROLE_USER")
-         */
+
 
 class UserController extends AbstractController
 {
 
          /**
          * Créer un nouveau stage.
-         * @Route("/compte", name="user.compte")
+         * @Route("/user/compte", name="user.compte")
           */
        public function monCompte() : Response
        {
@@ -85,7 +81,7 @@ class UserController extends AbstractController
            $commentaire->setCrypto($laCrypto);
            $commentaire->setUser($user[0]);
            $date = new \DateTime();
-           $date->setDate(date("y"),date("m"), date("d"));
+           $date->setDate(date("Y"),date("m"), date("d"));
            $commentaire->setDatePublication($date);
            $entityManager->persist($commentaire);
            $entityManager->flush();

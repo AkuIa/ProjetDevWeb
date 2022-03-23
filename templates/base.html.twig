@@ -14,44 +14,89 @@
         {% endblock %}
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
         <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
+        <script>
+            let name = 'theme' + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    if (c.substring(name.length, c.length) == 'dark') {
+                        document.documentElement.style.setProperty('--color', '#444444');
+                        document.documentElement.style.setProperty('--color2', '#000000');
+                        document.documentElement.style.setProperty('--color3', '#555555');
+                    }else{
+                        document.documentElement.style.setProperty('--color', 'cornflowerblue');
+                        document.documentElement.style.setProperty('--color2', 'blue');
+                        document.documentElement.style.setProperty('--color3', '#3A75FF');
+
+                    }
+                }
+            }
+
+
+
+        </script>
     </head>
     <body>
         <div class="navbar">
             <h1>Crypto.fr</h1>
             <ul>
-                <li><a href="{{ path('crypto') }}">Accueil</a></li>
-                <li><a href="{{ path('crypto.list') }}">Les cryptos</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{ path('crypto') }}">{{ 'Accueil'|trans }}</a></li>
+                <li><a href="{{ path('crypto.list') }}">{{ 'Les cryptos'|trans }}</a></li>
+                {% if app.user.roles is defined %}
+                    {% if app.user.roles[0] == "ROLE_ADMIN" %}
+                        <li><a href="{{ path('admin.index') }}">Admin</a></li>
+                    {% endif %}
+                {% endif %}
             </ul>
-            <div class="inscription-connexion">
-
-
-                    
-                        {% if app.user.username is defined %}
-                            <div class="btn">
-                                <a class="bouton" type="button" href="{{ path('user.compte') }}">
-                                    <p class="text-bouton">Mon compte</p>
-                                </a>
-                            </div>
-                            <div class="btn">
-                                <a class="bouton" type="button" href="{{ path('user.logout') }}">
-                                    <p class="text-bouton">Se deconnecter</p>
-                                </a>
-                            </div>
-                        {% else %}
-                            <div class="btn">
-                                <a class="bouton" type="button" href="{{ path('crypto.inscription') }}">
-                                    <p class="text-bouton">S'incrire</p>
-                                </a>
-                            </div>
-                            <div class="btn">
-                                <a class="bouton" type="button" href="{{ path('user.login') }}">
-                                    <p class="text-bouton">Se connecter</p>
-                                </a>
-                            </div>
+                <div class="inscription-connexion">
+                            {% if app.user.username is defined %}
+                                <div class="btn">
+                                    <a class="bouton" type="button" href="{{ path('user.compte') }}">
+                                        <p class="text-bouton">{{ 'Mon Compte'|trans }}</p>
+                                    </a>
+                                </div>
+                                <div class="btn">
+                                    <a class="bouton" type="button" href="{{ path('user.logout') }}">
+                                        <p class="text-bouton">{{ 'Se deconnecter'|trans }}</p>
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="btn">
+                                    <a class="bouton" type="button" href="{{ path('crypto.inscription') }}">
+                                        <p class="text-bouton">S'incrire</p>
+                                    </a>
+                                </div>
+                                <div class="btn">
+                                    <a class="bouton" type="button" href="{{ path('user.login') }}">
+                                        <p class="text-bouton">Se connecter</p>
+                                    </a>
+                                </div>
+                            {% endif %}
+                </div>
+                <div class="lang">
+                    {% for locale in locales %}
+                        {% if locale != app.request.locale %}
+                            {% if app.request.locale == 'fr' %}
+                                <img width="20px" height="20px" src="{{ asset('images/la-france.png') }}">
+                            {% else %}
+                                <img width="20px" height="20px" src="{{ asset('images/royaume-uni.png') }}">
+                            {% endif %}
+                            <a href="{{ path('change_locale', {'locale': locale}) }}">{{ locale }}</a>
                         {% endif %}
-
-            </div>
+                    {% endfor %}
+                </div>
+                <div class="theme">
+                    {% if app.request.cookies.get('theme') == 'light' %}
+                        <a href="{{ path('change_theme', {'theme': app.request.cookies.get('theme')}) }}">Dark</a>
+                    {% else %}
+                        <a href="{{ path('change_theme', {'theme': app.request.cookies.get('theme')}) }}">Light</a>
+                    {% endif %}
+                </div>
         </div>
         {% block body %}{% endblock %}
     </body>

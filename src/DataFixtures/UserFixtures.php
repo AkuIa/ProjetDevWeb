@@ -28,11 +28,22 @@ class UserFixtures extends Fixture
         ->setNom("Ruaux")
         ->setPrenom("Alexandre")
         ->setFavoris(["BTC"])
-        ->setRoles(["ROLE_USER,ROLE_ADMIN"])
+        ->setRoles(["ROLE_ADMIN"])
         ->setPassword($this->passwordEncoder->encodePassword(
             $user1, 'test'
         ));
         $manager->persist($user1);
+
+        $user2 = new User();
+        $user2->setEmail("test@gmail.com")
+            ->setNom("Ruaux")
+            ->setPrenom("Alexandre")
+            ->setFavoris(["BTC","ETH"])
+            ->setRoles(["ROLE_USER"])
+            ->setPassword($this->passwordEncoder->encodePassword(
+                $user2, 'test'
+            ));
+        $manager->persist($user2);
 
         $manager->flush();
 

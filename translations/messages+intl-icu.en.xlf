@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="UzFhc1Y" resname="Accueil">
+        <source>Accueil</source>
+        <target>Home</target>
+      </trans-unit>
+      <trans-unit id="Nq8gKif" resname="Les cryptos">
+        <source>Les cryptos</source>
+        <target>Cryptos</target>
+      </trans-unit>
+      <trans-unit id="_IUmfLU" resname="Mon Compte">
+        <source>Mon Compte</source>
+        <target>My Account</target>
+      </trans-unit>
+      <trans-unit id="Dvf5y03" resname="Se deconnecter">
+        <source>Se deconnecter</source>
+        <target>Sign out</target>
+      </trans-unit>
+      <trans-unit id="ssEkU20" resname="Nom">
+        <source>Nom</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="w0EGN5y" resname="Devise">
+        <source>Devise</source>
+        <target>Currency</target>
+      </trans-unit>
+      <trans-unit id="VMMk9sE" resname="Prix">
+        <source>Prix</source>
+        <target>Price</target>
+      </trans-unit>
+      <trans-unit id="3FiGaJa" resname="Capitalisation">
+        <source>Capitalisation</source>
+        <target>Capitalization</target>
+      </trans-unit>
+      <trans-unit id="olio7wM" resname="Quantité">
+        <source>Quantité</source>
+        <target>Amount</target>
+      </trans-unit>
+      <trans-unit id="L78US7." resname="Retirer des favoris">
+        <source>Retirer des favoris</source>
+        <target>Remove from favorites</target>
+      </trans-unit>
+      <trans-unit id="rTytbEt" resname="Ajouter au favoris">
+        <source>Ajouter au favoris</source>
+        <target>Add to favorites</target>
+      </trans-unit>
+      <trans-unit id="7yOllAJ" resname="Retour">
+        <source>Retour</source>
+        <target>Return</target>
+      </trans-unit>
+      <trans-unit id="QuN2BLY" resname="Modifier">
+        <source>Modifier</source>
+        <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="Xl0CFs4" resname="Supprimer">
+        <source>Supprimer</source>
+        <target>Delete</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

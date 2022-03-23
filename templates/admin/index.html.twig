@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<div class="menu-admin">
+    <div class="btn">
+        <a class="bouton" type="button" href="{{ path('admin.cryptos') }}">
+            <p class="text-bouton">{{ 'Cryptos'|trans }}</p>
+        </a>
+    </div>
+    <div class="btn">
+        <a class="bouton" type="button" href="{{ path('admin.users') }}">
+            <p class="text-bouton">{{ 'Utilisateurs'|trans }}</p>
+        </a>
+    </div>
+    <div class="btn">
+        <a class="bouton" type="button" href="{{ path('admin.commentaires') }}">
+            <p class="text-bouton">{{ 'Commentaires'|trans }}</p>
+        </a>
+    </div>
+</div>
+{% endblock %}
