@@ -38,7 +38,7 @@ class Crypto
     private $capitalisation;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $quantite;
 
