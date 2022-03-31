@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
         <script type="text/javascript" src="{{ asset('js/swup.js') }}"></script>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon-32x32.png') }}" />
         <script>
             let name = 'theme' + "=";
             let decodedCookie = decodeURIComponent(document.cookie);
@@ -83,7 +84,7 @@
                     {% for locale in locales %}
                         {% if locale != app.request.locale %}
                             <a href="{{ path('change_locale', {'locale': locale}) }}">
-                                {% if app.request.locale == 'fr' %}
+                                {% if app.request.locale == 'en' %}
                                     <img width="30px" height="30px" src="{{ asset('images/la-france.png') }}">
                                 {% else %}
                                     <img width="30px" height="30px" src="{{ asset('images/royaume-uni.png') }}">
@@ -94,10 +95,11 @@
                 </div>
                 <div class="theme">
                     {% if app.request.cookies.get('theme') is null %}
-                        <a href="{{ path('change_theme', {'theme':'light'}) }}">Dark</a>
+                        <a href="{{ path('change_theme', {'theme':'light'}) }}">
+                            <i class="fa fa-moon-o fa-2x rotate" style="color: black"></i>
+                        </a>
                     {% else %}
                         {% if app.request.cookies.get('theme') == 'light' %}
-
                             <a href="{{ path('change_theme', {'theme': app.request.cookies.get('theme')}) }}">
                                 <i class="fa fa-moon-o fa-2x rotate" style="color: black"></i>
                             </a>

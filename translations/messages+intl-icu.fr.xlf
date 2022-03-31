@@ -34,20 +34,20 @@
         <target>Prix</target>
       </trans-unit>
       <trans-unit id="3FiGaJa" resname="Capitalisation">
-        <source>Capitalization</source>
+        <source>Market cap</source>
         <target>Capitalisation</target>
       </trans-unit>
-      <trans-unit id="olio7wM" resname="Quantité">
-        <source>Amount</source>
-        <target>Quantité</target>
+      <trans-unit id="olio7wM" resname="Offre en circulation">
+        <source>Circulating supply</source>
+        <target>Offre en circulation</target>
       </trans-unit>
       <trans-unit id="L78US7." resname="Retirer des favoris">
         <source>Remove from favorites</source>
         <target>Retirer des favoris</target>
       </trans-unit>
-      <trans-unit id="rTytbEt" resname="Ajouter au favoris">
+      <trans-unit id="rTytbEt" resname="Ajouter aux favoris">
         <source>Add to favorites</source>
-        <target>Ajouter au favoris</target>
+        <target>Ajouter aux favoris</target>
       </trans-unit>
       <trans-unit id="7yOllAJ" resname="Retour">
         <source>Return</source>

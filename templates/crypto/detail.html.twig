@@ -4,8 +4,8 @@
     <div class="detail">
         <h1>{{ crypto.nom }}</h1>
         <h2>{{ 'Devise'|trans }} : {{ crypto.devise }}</h2>
-        <h2>{{ 'Prix'|trans }} : {{ crypto.prix|number_format(10, '.', ' ') }} €</h2>
-        <h2>{{ 'Quantité'|trans }} : {{ crypto.quantite|number_format(0, '.', ' ') }}</h2>
+        <h2>{{ 'Prix'|trans }} : {{ crypto.prix|number_format(7, '.', ' ') }} $</h2>
+        <h2>{{ 'Offre en circulation'|trans }} : {{ crypto.quantite|number_format(0, '.', ' ') }}</h2>
         <h2>{{ 'Capitalisation'|trans }} : {{ crypto.capitalisation|number_format(0, '.', ' ') }}</h2>
         <div class="btn">
             <a class="bouton" type="button" href="{{ path('crypto.list') }}">
@@ -28,7 +28,7 @@
             {% else %}
                 <div class="btn">
                     <a class="bouton" type="button" href="{{ path('user.ajouter-favoris', {devise: crypto.devise}) }}">
-                        <p class="text-bouton">{{ 'Ajouter au favoris'|trans }}</p>
+                        <p class="text-bouton">{{ 'Ajouter aux favoris'|trans }}</p>
                     </a>
                 </div>
             {% endif %}

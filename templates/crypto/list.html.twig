@@ -18,7 +18,7 @@
                 <tr>
                     <td><a href="{{ path('crypto.detail', {devise: crypto.devise}) }}">{{ crypto.nom }}</a></td>
                     <td>{{ crypto.devise }}</td>
-                    <td>{{ crypto.prix|number_format(6, '.', ' ') }} €</td>
+                    <td>{{ crypto.prix|number_format(6, '.', ' ') }} $</td>
                     <td>
                         {% set vote = 0 %}
                         {% for user in crypto.users %}
