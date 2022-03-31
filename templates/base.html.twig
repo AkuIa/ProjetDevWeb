@@ -83,7 +83,7 @@
                 <div class="lang">
                     {% for locale in locales %}
                         {% if locale != app.request.locale %}
-                            <a href="{{ path('change_locale', {'locale': locale}) }}">
+                            <a data-no-swup="" href="{{ path('change_locale', {'locale': locale}) }}">
                                 {% if app.request.locale == 'en' %}
                                     <img width="30px" height="30px" src="{{ asset('images/la-france.png') }}">
                                 {% else %}
@@ -95,16 +95,16 @@
                 </div>
                 <div class="theme">
                     {% if app.request.cookies.get('theme') is null %}
-                        <a href="{{ path('change_theme', {'theme':'light'}) }}">
+                        <a data-no-swup="" href="{{ path('change_theme', {'theme':'light'}) }}">
                             <i class="fa fa-moon-o fa-2x rotate" style="color: black"></i>
                         </a>
                     {% else %}
                         {% if app.request.cookies.get('theme') == 'light' %}
-                            <a href="{{ path('change_theme', {'theme': app.request.cookies.get('theme')}) }}">
+                            <a data-no-swup="" href="{{ path('change_theme', {'theme': app.request.cookies.get('theme')}) }}">
                                 <i class="fa fa-moon-o fa-2x rotate" style="color: black"></i>
                             </a>
                         {% else %}
-                            <a href="{{ path('change_theme', {'theme': app.request.cookies.get('theme')}) }}">
+                            <a data-no-swup="" href="{{ path('change_theme', {'theme': app.request.cookies.get('theme')}) }}">
                                 <i class="fa fa-sun-o fa-2x rotate"></i>
                             </a>
                         {% endif %}
