@@ -22,18 +22,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class UserController extends AbstractController
 {
 
-         /**
-         * Créer un nouveau stage.
-         * @Route("/user/compte", name="user.compte")
-          */
+      /**
+      * Créer un nouveau stage.
+      * @Route("/user/compte", name="user.compte")
+      */
        public function monCompte() : Response
        {
-           $user = new User();
-           $commentaires = new Commentaire();
-           $user = $this->getDoctrine()->getRepository(User::class)->findBy(array('email' => $this->getUser()->getUsername()));
-           $commentaires = $this->getDoctrine()->getRepository(Commentaire::class)->findBy(array('user' => $user[0]));
+           $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('email' => $this->getUser()->getUsername()));
+           $commentaires = $this->getDoctrine()->getRepository(Commentaire::class)->findBy(array('user' => $user));
            return $this->render('user/compte.html.twig', [
-               'user' => $user[0],
+               'user' => $user,
                'commentaires' => $commentaires,
            ]);
        }
@@ -72,9 +70,7 @@ class UserController extends AbstractController
        public  function  ajouterCommentaire(Crypto $crypto) : Response
        {
            $entityManager = $this->getDoctrine()->getManager();
-           $laCrypto = new Crypto();
            $laCrypto = $entityManager->getRepository(Crypto::class)->find($crypto);
-           $user = new User();
            $user = $this->getDoctrine()->getRepository(User::class)->findBy(array('email' => $this->getUser()->getUsername()));
            $commentaire = new Commentaire();
            $commentaire->setDescription($_POST['nouveau-commentaire']);
@@ -83,7 +79,6 @@ class UserController extends AbstractController
            $date = new \DateTime();
            $date->setDate(date("Y"),date("m"), date("d"));
            $commentaire->setDatePublication($date);
-           $entityManager->persist($commentaire);
            $entityManager->flush();
            return $this->redirectToRoute('crypto.detail', array('devise' => $laCrypto->getDevise()));
        }
@@ -91,36 +86,30 @@ class UserController extends AbstractController
         /**
          * @Route("/user/favoris/ajouter/{devise}", name="user.ajouter-favoris", requirements={"devise" = "\w+"})
          * @param Crypto $crypto
+         * @param EntityManagerInterface $em
          */
-       public function ajouterFavoris(Crypto $crypto) : Response
+       public function ajouterFavoris(Crypto $crypto, EntityManagerInterface $em) : Response
        {
-            $entityManager = $this->getDoctrine()->getManager();
-            $user = new User();
-            $user = $user = $this->getDoctrine()->getRepository(User::class)->find($this->getUser()->getId());
-            $favoris = $user->getFavoris();
-            array_push($favoris, $crypto->getDevise());
-            $user->setFavoris($favoris);
-            $entityManager->persist($user);
-            $entityManager->flush();
-            return $this->redirectToRoute('user.compte');
+            $em = $this->getDoctrine()->getManager();
+            $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('id' => $this->getUser()->getId()));
+            $maCrypto = $this->getDoctrine()->getRepository(Crypto::class)->findOneBy(array('id' => $crypto->getId()));
+            $user->addFavori($maCrypto);
+           $em->flush();
+           return $this->redirectToRoute('user.compte');
        }
 
-    /**
-     * @Route("/user/favoris/retirer/{devise}", name="user.retirer-favoris", requirements={"devise" = "\w+"})
-     * @param Crypto $crypto
-     */
-    public function retirerFavoris(Crypto $crypto) : Response
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        $user = new User();
-        $user = $user = $this->getDoctrine()->getRepository(User::class)->find($this->getUser()->getId());
-        $favoris = $user->getFavoris();
-        $val = array($crypto->getDevise());
-        $user->setFavoris(array_diff($favoris, $val));
-        $entityManager->persist($user);
-        $entityManager->flush();
-        return $this->redirectToRoute('user.compte');
-    }
+        /**
+         * @Route("/user/favoris/retirer/{devise}", name="user.retirer-favoris", requirements={"devise" = "\w+"})
+         * @param Crypto $crypto
+         */
+        public function retirerFavoris(Crypto $crypto) : Response
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+            $user = $this->getDoctrine()->getRepository(User::class)->find($this->getUser()->getId());
+            $crypto->removeUser($user);
+            $entityManager->flush();
+            return $this->redirectToRoute('user.compte');
+        }
 
 
 }

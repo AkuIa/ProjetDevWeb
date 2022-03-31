@@ -13,7 +13,8 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
-        <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <script type="text/javascript" src="{{ asset('js/swup.js') }}"></script>
         <script>
             let name = 'theme' + "=";
             let decodedCookie = decodeURIComponent(document.cookie);
@@ -28,17 +29,17 @@
                         document.documentElement.style.setProperty('--color', '#444444');
                         document.documentElement.style.setProperty('--color2', '#000000');
                         document.documentElement.style.setProperty('--color3', '#555555');
-                    }else{
-                        document.documentElement.style.setProperty('--color', 'cornflowerblue');
-                        document.documentElement.style.setProperty('--color2', 'blue');
-                        document.documentElement.style.setProperty('--color3', '#3A75FF');
-
+                        document.documentElement.style.setProperty('--color4', 'rgba(0,0,0,0.2)');
                     }
                 }
             }
 
 
 
+        </script>
+        <script type="module">
+            const swup = new Swup
+            console.log(swup);
         </script>
     </head>
     <body>
@@ -61,19 +62,19 @@
                                     </a>
                                 </div>
                                 <div class="btn">
-                                    <a class="bouton" type="button" href="{{ path('user.logout') }}">
+                                    <a data-no-swup="" class="bouton" type="button" href="{{ path('user.logout') }}">
                                         <p class="text-bouton">{{ 'Se deconnecter'|trans }}</p>
                                     </a>
                                 </div>
                             {% else %}
                                 <div class="btn">
                                     <a class="bouton" type="button" href="{{ path('crypto.inscription') }}">
-                                        <p class="text-bouton">S'incrire</p>
+                                        <p class="text-bouton">{{ "S'incrire"|trans }}</p>
                                     </a>
                                 </div>
                                 <div class="btn">
                                     <a class="bouton" type="button" href="{{ path('user.login') }}">
-                                        <p class="text-bouton">Se connecter</p>
+                                        <p class="text-bouton">{{ 'Se connecter'|trans }}</p>
                                     </a>
                                 </div>
                             {% endif %}
@@ -81,23 +82,35 @@
                 <div class="lang">
                     {% for locale in locales %}
                         {% if locale != app.request.locale %}
-                            {% if app.request.locale == 'fr' %}
-                                <img width="20px" height="20px" src="{{ asset('images/la-france.png') }}">
-                            {% else %}
-                                <img width="20px" height="20px" src="{{ asset('images/royaume-uni.png') }}">
-                            {% endif %}
-                            <a href="{{ path('change_locale', {'locale': locale}) }}">{{ locale }}</a>
+                            <a href="{{ path('change_locale', {'locale': locale}) }}">
+                                {% if app.request.locale == 'fr' %}
+                                    <img width="30px" height="30px" src="{{ asset('images/la-france.png') }}">
+                                {% else %}
+                                    <img width="30px" height="30px" src="{{ asset('images/royaume-uni.png') }}">
+                                {% endif %}
+                            </a>
                         {% endif %}
                     {% endfor %}
                 </div>
                 <div class="theme">
-                    {% if app.request.cookies.get('theme') == 'light' %}
-                        <a href="{{ path('change_theme', {'theme': app.request.cookies.get('theme')}) }}">Dark</a>
+                    {% if app.request.cookies.get('theme') is null %}
+                        <a href="{{ path('change_theme', {'theme':'light'}) }}">Dark</a>
                     {% else %}
-                        <a href="{{ path('change_theme', {'theme': app.request.cookies.get('theme')}) }}">Light</a>
+                        {% if app.request.cookies.get('theme') == 'light' %}
+
+                            <a href="{{ path('change_theme', {'theme': app.request.cookies.get('theme')}) }}">
+                                <i class="fa fa-moon-o fa-2x rotate" style="color: black"></i>
+                            </a>
+                        {% else %}
+                            <a href="{{ path('change_theme', {'theme': app.request.cookies.get('theme')}) }}">
+                                <i class="fa fa-sun-o fa-2x rotate"></i>
+                            </a>
+                        {% endif %}
                     {% endif %}
                 </div>
         </div>
-        {% block body %}{% endblock %}
+        <div id="swup" class="transition-slide">
+            {% block body %}{% endblock %}
+        </div>
     </body>
 </html>

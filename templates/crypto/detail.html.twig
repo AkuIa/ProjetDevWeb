@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
-{% block title %}Liste des cryptos{% endblock %}
+{% block title %}{{ 'Detail crypto'|trans }}{% endblock %}
 {% block body %}
     <div class="detail">
         <h1>{{ crypto.nom }}</h1>
         <h2>{{ 'Devise'|trans }} : {{ crypto.devise }}</h2>
-        <h2>{{ 'Prix'|trans }} : {{ crypto.prix }} €</h2>
-        <h2>{{ 'Quantité'|trans }} : {{ crypto.quantite }}</h2>
-        <h2>{{ 'Capitalisation'|trans }} : {{ crypto.capitalisation }}</h2>
+        <h2>{{ 'Prix'|trans }} : {{ crypto.prix|number_format(10, '.', ' ') }} €</h2>
+        <h2>{{ 'Quantité'|trans }} : {{ crypto.quantite|number_format(0, '.', ' ') }}</h2>
+        <h2>{{ 'Capitalisation'|trans }} : {{ crypto.capitalisation|number_format(0, '.', ' ') }}</h2>
         <div class="btn">
             <a class="bouton" type="button" href="{{ path('crypto.list') }}">
                 <p class="text-bouton">{{ 'Retour'|trans }}</p>
@@ -15,7 +15,7 @@
         {% if user is defined %}
             {% set trouve = false %}
             {% for favori in user.favoris %}
-                {% if favori == crypto.devise %}
+                {% if favori.devise == crypto.devise %}
                     {% set trouve = true %}
                 {% endif %}
             {% endfor %}
@@ -39,8 +39,8 @@
            {% if app.user.username is defined %}
                <div class="commentaire">
                    <form method="post" action="{{ path('user.ajouter-commentaire', {crypto: crypto.id}) }}">
-                       <textarea name="nouveau-commentaire" placeholder="Écrivez votre commentaire"></textarea>
-                       <input type="submit" value="Ajouter">
+                       <textarea name="nouveau-commentaire" placeholder="{{ 'Écrivez votre commentaire'|trans }}"></textarea>
+                       <input type="submit" value="{{ 'Ajouter'|trans }}">
                    </form>
                </div>
            {% endif %}

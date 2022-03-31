@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CryptoRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,9 +40,19 @@ class Crypto
     private $capitalisation;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $quantite;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="favoris")
+     */
+    private $users;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,5 +117,37 @@ class Crypto
         $this->quantite = $quantite;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addFavori($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeFavori($this);
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getDevise();
     }
 }

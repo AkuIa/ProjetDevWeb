@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="UzFhc1Y" resname="Accueil">
+        <source>Home</source>
+        <target>Accueil</target>
+      </trans-unit>
+      <trans-unit id="Nq8gKif" resname="Les cryptos">
+        <source>Cryptos</source>
+        <target>Les cryptos</target>
+      </trans-unit>
+      <trans-unit id="_IUmfLU" resname="Mon Compte">
+        <source>My Account</source>
+        <target>Mon Compte</target>
+      </trans-unit>
+      <trans-unit id="Dvf5y03" resname="Se deconnecter">
+        <source>Sign out</source>
+        <target>Se deconnecter</target>
+      </trans-unit>
+      <trans-unit id="ssEkU20" resname="Nom">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="w0EGN5y" resname="Devise">
+        <source>Currency</source>
+        <target>Devise</target>
+      </trans-unit>
+      <trans-unit id="VMMk9sE" resname="Prix">
+        <source>Price</source>
+        <target>Prix</target>
+      </trans-unit>
+      <trans-unit id="3FiGaJa" resname="Capitalisation">
+        <source>Capitalization</source>
+        <target>Capitalisation</target>
+      </trans-unit>
+      <trans-unit id="olio7wM" resname="Quantité">
+        <source>Amount</source>
+        <target>Quantité</target>
+      </trans-unit>
+      <trans-unit id="L78US7." resname="Retirer des favoris">
+        <source>Remove from favorites</source>
+        <target>Retirer des favoris</target>
+      </trans-unit>
+      <trans-unit id="rTytbEt" resname="Ajouter au favoris">
+        <source>Add to favorites</source>
+        <target>Ajouter au favoris</target>
+      </trans-unit>
+      <trans-unit id="7yOllAJ" resname="Retour">
+        <source>Return</source>
+        <target>Retour</target>
+      </trans-unit>
+      <trans-unit id="QuN2BLY" resname="Modifier">
+        <source>Edit</source>
+        <target>Modifier</target>
+      </trans-unit>
+      <trans-unit id="Xl0CFs4" resname="Supprimer">
+        <source>Delete</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="CIFRXZw" resname="Une nouvelle">
+        <source>A new</source>
+        <target>Une nouvelle</target>
+      </trans-unit>
+      <trans-unit id="0KxXN6x" resname="façon">
+        <source>way</source>
+        <target>façon</target>
+      </trans-unit>
+      <trans-unit id="jfG8wT0" resname="de visualiser la monnaie virtuel, la">
+        <source>to view virtual currency, the</source>
+        <target>de visualiser la monnaie virtuel, la</target>
+      </trans-unit>
+      <trans-unit id="XRItPcU" resname="Liste des cryptos">
+        <source>List of cryptos</source>
+        <target>Liste des cryptos</target>
+      </trans-unit>
+      <trans-unit id="zVWI22." resname="Vote">
+        <source>Vote</source>
+        <target>Vote</target>
+      </trans-unit>
+      <trans-unit id="xSfhzBM" resname="Detail crypto">
+        <source>Detail of crypto</source>
+        <target>Detail crypto</target>
+      </trans-unit>
+      <trans-unit id="csPJMFw" resname="Écrivez votre commentaire">
+        <source>Write your comment</source>
+        <target>Écrivez votre commentaire</target>
+      </trans-unit>
+      <trans-unit id="APnFM0V" resname="Ajouter">
+        <source>Add</source>
+        <target>Ajouter</target>
+      </trans-unit>
+      <trans-unit id="cwc3kd_" resname="S'incrire">
+        <source>Sign up</source>
+        <target>S'incrire</target>
+      </trans-unit>
+      <trans-unit id="CsPSyzA" resname="Se connecter">
+        <source>Sign in</source>
+        <target>Se connecter</target>
+      </trans-unit>
+      <trans-unit id="YdaVBBA" resname="Connexion">
+        <source>Connection</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit id="ueUODot" resname="mot de passe">
+        <source>password</source>
+        <target>mot de passe</target>
+      </trans-unit>
+      <trans-unit id="wquExgw" resname="Admin - Commentaires">
+        <source>Admin - Comments</source>
+        <target>Admin - Commentaires</target>
+      </trans-unit>
+      <trans-unit id="EhVukhv" resname="Id">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="WIDlngw" resname="Auteur">
+        <source>Author</source>
+        <target>Auteur</target>
+      </trans-unit>
+      <trans-unit id="3xK4_Jt" resname="Crypto">
+        <source>Crypto</source>
+        <target>Crypto</target>
+      </trans-unit>
+      <trans-unit id="Um4Ah8w" resname="Description">
+        <source>Description</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="mcQKtAW" resname="Date">
+        <source>Date</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="LiGHqy_" resname="Pannnel admin">
+        <source>Admin panel</source>
+        <target>Pannnel admin</target>
+      </trans-unit>
+      <trans-unit id="wYRIWF1" resname="Cryptos">
+        <source>Cryptos</source>
+        <target>Cryptos</target>
+      </trans-unit>
+      <trans-unit id="I9OTi17" resname="Utilisateurs">
+        <source>Users</source>
+        <target>Utilisateurs</target>
+      </trans-unit>
+      <trans-unit id="9516ize" resname="Commentaires">
+        <source>Comments</source>
+        <target>Commentaires</target>
+      </trans-unit>
+      <trans-unit id="nYE_eDo" resname="Liste utilisateurs">
+        <source>List of users</source>
+        <target>Liste utilisateurs</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Mail</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id=".5yLjAZ" resname="Mot de passe">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="4yW.j5A" resname="Prénom">
+        <source>First name</source>
+        <target>Prénom</target>
+      </trans-unit>
+      <trans-unit id="ch5bKau" resname="Utilisateur">
+        <source>User</source>
+        <target>Utilisateur</target>
+      </trans-unit>
+      <trans-unit id="wcIksDz" resname="Admin">
+        <source>Admin</source>
+        <target>Admin</target>
+      </trans-unit>
+      <trans-unit id="FHNqLrn" resname="Role">
+        <source>Role</source>
+        <target>Role</target>
+      </trans-unit>
+      <trans-unit id="2ks_uCr" resname="Admin - Cryptos">
+        <source>Admin - Cryptos</source>
+        <target>Admin - Cryptos</target>
+      </trans-unit>
+      <trans-unit id="KPRXHyi" resname="Mon compte">
+        <source>My account</source>
+        <target>Mon compte</target>
+      </trans-unit>
+      <trans-unit id="njdhuBv" resname="Compte de">
+        <source>Account of</source>
+        <target>Compte de</target>
+      </trans-unit>
+      <trans-unit id="6IfeSsx" resname="Crypto favoris">
+        <source>Favorite cryptos</source>
+        <target>Crypto favoris</target>
+      </trans-unit>
+      <trans-unit id="nkEMKg6" resname="Type de compte">
+        <source>Type of account</source>
+        <target>Type de compte</target>
+      </trans-unit>
+      <trans-unit id="HOr3Qcv" resname="Mes commentaires">
+        <source>My comments</source>
+        <target>Mes commentaires</target>
+      </trans-unit>
+      <trans-unit id="SNPoFla" resname="Commentaire">
+        <source>Comment</source>
+        <target>Commentaire</target>
+      </trans-unit>
+      <trans-unit id="z7GsDIB" resname="Inscription">
+        <source>Registration</source>
+        <target>Inscription</target>
+      </trans-unit>
+      <trans-unit id="PCX0_17" resname="S'inscrire">
+        <source>Sign up</source>
+        <target>S'inscrire</target>
+      </trans-unit>
+      <trans-unit id="yrFEeRj" resname="Se souvenir de moi">
+        <source>Remember me</source>
+        <target>Se souvenir de moi</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}{{ 'Connexion'|trans }}{% endblock %}
 
 {% block body %}
 <form method="post" class="connexion">
@@ -14,22 +14,20 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+    <h1 class="h3 mb-3 font-weight-normal">{{ 'Connexion'|trans }}</h1>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" placeholder="email" required autofocus>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" placeholder="mot de passe" required>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" placeholder="{{ 'mot de passe'|trans }}" required>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
     <div class="checkbox mb-3">
         <label>
-            <input type="checkbox" name="_remember_me"> Remember me
+            <input type="checkbox" name="_remember_me"> {{ 'Se souvenir de moi'|trans }}
         </label>
     </div>
 
     <button class="btn btn-lg btn-primary" type="submit">
-        Se connecter
+        {{ 'Se connecter'|trans }}
     </button>
 </form>
 {% endblock %}

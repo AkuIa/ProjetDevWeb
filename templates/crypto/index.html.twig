@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
-{% block title %}Accueil{% endblock %}
+{% block title %}{{ 'Accueil'|trans }}{% endblock %}
 {% block body %}
-<div class="container">
-    <div class="txt">
-        <p>
-            Une nouvelle
-            <span class="couleur">façon </span>
-            qui va révolutionner le monde de la
-            <span class="couleur">crypto </span>
-        </p>
+    <div class="container">
+        <div class="txt">
+            <p>
+                {{ 'Une nouvelle'|trans }}
+                <span class="couleur">{{ 'façon'|trans }} </span>
+                {{ 'de visualiser la monnaie virtuel, la'|trans }}
+                <span class="couleur"> crypto</span>
+            </p>
+        </div>
+        <div class="image">
+            <img src="{{ asset('images/logo.png') }}">
+        </div>
     </div>
-    <div class="image">
-        <img src="{{ asset('images/logo.png') }}">
-    </div>
-</div>
 {% endblock %}

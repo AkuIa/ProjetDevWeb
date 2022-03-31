@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -45,9 +47,14 @@ class User implements UserInterface
     private $prenom;
 
     /**
-     * @ORM\Column(type="json", nullable=true)
+     * @ORM\ManyToMany(targetEntity=Crypto::class, inversedBy="users")
      */
-    private $favoris = [];
+    private $favoris;
+
+    public function __construct()
+    {
+        $this->favoris = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -153,14 +160,26 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getFavoris(): ?array
+    /**
+     * @return Collection<int, Crypto>
+     */
+    public function getFavoris(): Collection
     {
         return $this->favoris;
     }
 
-    public function setFavoris(?array $favoris): self
+    public function addFavori(Crypto $favori): self
     {
-        $this->favoris = $favoris;
+        if (!$this->favoris->contains($favori)) {
+            $this->favoris[] = $favori;
+        }
+
+        return $this;
+    }
+
+    public function removeFavori(Crypto $favori): self
+    {
+        $this->favoris->removeElement($favori);
 
         return $this;
     }

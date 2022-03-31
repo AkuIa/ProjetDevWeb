@@ -27,7 +27,6 @@ class UserFixtures extends Fixture
         $user1->setEmail("alexandre.ruaux@sfr.fr")
         ->setNom("Ruaux")
         ->setPrenom("Alexandre")
-        ->setFavoris(["BTC"])
         ->setRoles(["ROLE_ADMIN"])
         ->setPassword($this->passwordEncoder->encodePassword(
             $user1, 'test'
@@ -38,7 +37,6 @@ class UserFixtures extends Fixture
         $user2->setEmail("test@gmail.com")
             ->setNom("Ruaux")
             ->setPrenom("Alexandre")
-            ->setFavoris(["BTC","ETH"])
             ->setRoles(["ROLE_USER"])
             ->setPassword($this->passwordEncoder->encodePassword(
                 $user2, 'test'

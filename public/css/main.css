@@ -3,6 +3,7 @@
         --color: cornflowerblue;
         --color2: blue;
         --color3: #3A75FF;
+        --color4: rgba(0,0,255,0.2);
     }
 }
 :root {
@@ -269,7 +270,7 @@ body {
     height: 50px;
     font-size: x-large;
     border: none;
-    background-color: #3A75FF;
+    background-color: var(--color4);
     border-bottom: solid 2px white;
     color: white;
 }
@@ -386,7 +387,7 @@ body {
     border-top: none;
     border-left: none;
     border-right: none;
-    background-color: rgba(0,0,255,0.2);
+    background-color: var(--color4);
     color: white;
 }
 .ajout {
@@ -404,7 +405,7 @@ body {
     border-top: none;
     border-left: none;
     border-right: none;
-    background-color: rgba(0,0,255,0.2);
+    background-color: var(--color4);
     color: white;
 }
 .ajout form input::placeholder {
@@ -433,4 +434,21 @@ body {
 }
 .theme a {
     text-decoration: none;
+    color: white;
+}
+.rotate {
+    transition: all 1s;
+}
+.rotate:hover {
+    transform: rotate(1turn) scale(1.2);
+}
+.transition-slide {
+    transition: 0.5s;
+    transform: translate(0%);
+}
+html.is-animating .transition-slide {
+    transform: translate(-100%);
+}
+html.is-animating.is-leaving .transition-slide {
+    transform: translate(100%);
 }

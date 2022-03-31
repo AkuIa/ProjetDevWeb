@@ -1,25 +1,25 @@
 {% extends 'base.html.twig' %}
-{% block title %}Mon compte{% endblock %}
+{% block title %}{{ 'Mon compte'|trans }}{% endblock %}
 {% block body %}
     <div class="compte">
-        <h1>Compte de {{ app.user.username }}</h1>
-        <h3>Nom : {{ user.nom }}</h3>
-        <h3>Prénom : {{ user.prenom }}</h3>
-        <h3>Crypto favoris :
+        <h1>{{ 'Compte de'|trans }} {{ app.user.username }}</h1>
+        <h3>{{ 'Nom'|trans }} : {{ user.nom }}</h3>
+        <h3>{{ 'Prénom'|trans }} : {{ user.prenom }}</h3>
+        <h3>{{ 'Crypto favoris'|trans }} :
             {{ user.favoris|join(', ') }}
         </h3>
-        <h3>Type de compte : {{ user.roles[0] }}</h3>
+        <h3>{{ 'Type de compte'|trans }} : {{ user.roles[0] }}</h3>
         <br/>
-        <h1>Mes commentaires</h1>
+        <h1>{{ 'Mes commentaires'|trans }}</h1>
     </div>
     <div class="container">
             <table class="list">
                 <thead>
                     <tr>
-                        <th>Crypto</th>
-                        <th>Date</th>
-                        <th>Commentaire</th>
-                        <th>Supprimer</th>
+                        <th>{{ 'Crypto'|trans }}</th>
+                        <th>{{ 'Date'|trans }}</th>
+                        <th>{{ 'Commentaire'|trans }}</th>
+                        <th>{{ 'Supprimer'|trans }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,12 +30,12 @@
                             <td>
                                 <form method="post" action="{{ path('user.modifier-commentaire', {commentaire: commentaire.id}) }}">
                                     <textarea name="text-user-commentaire">{{ commentaire.description }}</textarea>
-                                    <input type="submit" value="Modifier">
+                                    <input type="submit" value="{{ 'Modifier'|trans }}">
                                 </form>
                             </td>
                             <td>
                                 <form method="post" action="{{ path('user.supprimer-commentaire', {commentaire: commentaire.id}) }}">
-                                    <input type="submit" value="Supprimer">
+                                    <input type="submit" value="{{ 'Supprimer'|trans }}">
                                 </form>
                             </td>
                         </tr>
