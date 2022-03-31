@@ -66,18 +66,13 @@ class AdminController extends AbstractController
      */
     public function deleteCrypto(Crypto $crypto) : Response
     {
-
         $entityManager = $this->getDoctrine()->getManager();
         $users = $entityManager->getRepository(User::class)->findAll();
         foreach ($users as $user) {
             $favoris = $user->getFavoris();
-            foreach ($favoris as $favori) {
-                if ($favori == $crypto->getDevise()) {
-                    $val = array($crypto->getDevise());
-                    $user->setFavoris(array_diff($favoris, $val));
-                    $entityManager->persist($user);
-                    $entityManager->flush();
-                }
+            foreach ($crypto->getUsers() as $user) {
+                $crypto->removeUser($user);
+                $entityManager->flush();
             }
         }
         $commentaires = $entityManager->getRepository(Commentaire::class)->findBy(array('crypto' => $crypto->getId()));
@@ -212,7 +207,6 @@ class AdminController extends AbstractController
      */
     public function deleteCommentaire(Commentaire $commentaire) : Response
     {
-
         $entityManager = $this->getDoctrine()->getManager();
         $monCommentaire = $entityManager->getRepository(Commentaire::class)->find($commentaire->getId());
         $entityManager->remove($monCommentaire);

@@ -21,6 +21,7 @@ class ComposerStaticInitc95430d29dd4f0009e1b873903fa6bf1
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'c2aad8997a98dfc4771bdbffea3d62b7' => __DIR__ . '/..' . '/laminas/laminas-code/polyfill/ReflectionEnumPolyfill.php',
+        '04b6576f786ea6b5b4b577af08f8e4d1' => __DIR__ . '/..' . '/symfony/polyfill-intl-messageformatter/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -45,6 +46,7 @@ class ComposerStaticInitc95430d29dd4f0009e1b873903fa6bf1
             'Symfony\\Polyfill\\Php72\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
+            'Symfony\\Polyfill\\Intl\\MessageFormatter\\' => 39,
             'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
             'Symfony\\Polyfill\\Intl\\Icu\\' => 26,
             'Symfony\\Flex\\' => 13,
@@ -199,6 +201,10 @@ class ComposerStaticInitc95430d29dd4f0009e1b873903fa6bf1
         'Symfony\\Polyfill\\Intl\\Normalizer\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer',
+        ),
+        'Symfony\\Polyfill\\Intl\\MessageFormatter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-messageformatter',
         ),
         'Symfony\\Polyfill\\Intl\\Idn\\' => 
         array (
@@ -573,8 +579,10 @@ class ComposerStaticInitc95430d29dd4f0009e1b873903fa6bf1
         'Collator' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'IntlDateFormatter' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/IntlDateFormatter.php',
+        'IntlException' => __DIR__ . '/..' . '/symfony/polyfill-intl-messageformatter/Resources/stubs/IntlException.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Locale' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/Locale.php',
+        'MessageFormatter' => __DIR__ . '/..' . '/symfony/polyfill-intl-messageformatter/Resources/stubs/MessageFormatter.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
         'NumberFormatter' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/NumberFormatter.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',

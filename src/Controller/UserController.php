@@ -79,6 +79,7 @@ class UserController extends AbstractController
            $date = new \DateTime();
            $date->setDate(date("Y"),date("m"), date("d"));
            $commentaire->setDatePublication($date);
+           $entityManager->persist($commentaire);
            $entityManager->flush();
            return $this->redirectToRoute('crypto.detail', array('devise' => $laCrypto->getDevise()));
        }
@@ -94,7 +95,9 @@ class UserController extends AbstractController
             $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('id' => $this->getUser()->getId()));
             $maCrypto = $this->getDoctrine()->getRepository(Crypto::class)->findOneBy(array('id' => $crypto->getId()));
             $user->addFavori($maCrypto);
-           $em->flush();
+            $em->persist($user);
+            $em->persist($maCrypto);
+            $em->flush();
            return $this->redirectToRoute('user.compte');
        }
 
